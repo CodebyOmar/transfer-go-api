@@ -1,0 +1,31 @@
+{
+  "name": "transfer-go",
+  "version": "1.0.0",
+  "description": "transfer cash to phone numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -r dotenv/config index.js",
+    "start": "node index.js NODE_ENV=PRODUCTION"
+  },
+  "keywords": [
+    "rave",
+    "flutterwave",
+    "transfer",
+    "phone",
+    "number"
+  ],
+  "author": "codebyomar",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "joi": "^13.4.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.2.5",
+    "nexmo": "^2.3.2",
+    "node-forge": "^0.7.5"
+  }
+}
