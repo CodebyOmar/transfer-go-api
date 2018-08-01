@@ -97,7 +97,7 @@ exports.validateCardCharge = async (req, res) => {
         break;
     }
 
-  }catch {
+  }catch(e) {
     res.json({ status: 'error', data: validate_otp })
   }
 }
