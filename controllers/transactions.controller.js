@@ -39,7 +39,8 @@ exports.sendToPhone = async (req, res) => {
       data: { 
         rave_response: send, 
         txRef: trxn._id 
-      } 
+      },
+      message: send.message 
     })
 
   }).catch(err => { res.json({ data: { rave_response: null }, status: 'error'}) })
