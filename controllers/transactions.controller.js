@@ -29,7 +29,11 @@ exports.sendToPhone = async (req, res) => {
   transaction.sender = { name: firstname.concat(" "+lastname), phonenumber }
   transaction.receiver = meta[0]
 
-  let cardData = Object.assign({ "PBFPubKey": process.env.RPK, "txRef": transaction._id, "IP": req.ip}, req.body)
+  let cardData = Object.assign({ 
+    "PBFPubKey": process.env.RPK, 
+    "txRef": transaction._id, 
+    "IP": req.ip, 
+    "redirect_url": process.env._REDIRECT_URL }, req.body)
 
   transaction.save().then(async trxn => {
 
