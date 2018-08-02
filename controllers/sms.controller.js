@@ -8,7 +8,7 @@ const Transaction = require('../models/transactions')
 async function generateTextandLink(trxn) {
   let { _id, sender, receiver, amount, currency } = trxn
   const code = _id.toString().substr(-2, Math.floor((Math.random() * 10) + 1))
-  const link = encodeURI(process.env._BASE + `/transfer-go/v1/claim/` + md5(code))
+  const link = encodeURI(process.env._BASE + `?txref=` + md5(code))
   const shorten = await googleApi.shortenUrl( "https://trgo.page.link/?link=".concat(link) )
   let shorturl;
 
