@@ -15,6 +15,7 @@ const app        = require('express')(),
    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
    next();
  });    
+ 
  //routes
  app.use('/transfer-go/v1/send/', routes.send)
  app.use('/transfer-go/v1/claim/', routes.claim)

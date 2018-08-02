@@ -62,7 +62,6 @@ exports.foriegnCardAuthValidation = joi.object().keys ({
   "firstname": joi.string().required(),
   "lastname": joi.string().required(),
   "txRef": joi.string().required(),
-  "pin": joi.string().required(),
   "suggested_auth": joi.string().required(),
   "billingzip": joi.string().required(),
   "billingcity": joi.string().required(),

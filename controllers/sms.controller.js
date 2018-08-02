@@ -13,7 +13,7 @@ async function generateTextandLink(trxn) {
   let shorturl;
 
   shorten.status === 'success' ? shorturl = shorten.data.shortLink : shorturl = link
-  const text = `Hi ${receiver.name}, ${sender.name} sent you ${amount} (${currency}). Click on the link to deposit funds into you bank account - \n${shorturl} \n\n Sent with Transfer-go.`
+  const text = `Hi ${receiver.name}, ${sender.name} sent you ${amount} (${currency}). Use the link to deposit funds into you bank account - \n${shorturl} \n Sent with Transfer-go.`
   
   return { text, code }                 
 }

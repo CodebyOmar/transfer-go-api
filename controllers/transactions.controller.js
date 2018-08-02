@@ -34,6 +34,7 @@ exports.sendToPhone = async (req, res) => {
   transaction.save().then(async trxn => {
 
     const send = await raveService.chargeCard(cardData)
+    // send response 
     res.json({ 
       status:send.status, 
       data: { 
@@ -70,6 +71,7 @@ exports.internationalCardAuth = async (req, res) => {
 exports.validateCardCharge = async (req, res) => {
   let payload = Object.assign({"PBFPubKey": process.env.RPK }, req.body)
 
+  // validating otp..
   const validate_otp = await raveService.validateOtp(payload)
 
   try {
@@ -77,7 +79,7 @@ exports.validateCardCharge = async (req, res) => {
       // charge successful
       case "00": 
         let ref = validate_otp.data.tx.txRef
-        const verifyPay = await raveService.verifyPayment(ref)
+        const verifyPay = await raveService.verifyPayment(ref); // verifying payment
 
         if(verifyPay.data.status === 'successful' && verifyPay.data.chargecode === '00') {
           let resData = {
