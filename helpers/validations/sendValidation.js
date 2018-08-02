@@ -106,3 +106,7 @@ exports.claimValidations = joi.object().keys ({
 exports.getTrxnValidation = joi.object().keys({
   "code": joi.string().required()
 })
+
+exports.getBanksValidations = joi.object().keys ({
+  "country": joi.string().required()
+})

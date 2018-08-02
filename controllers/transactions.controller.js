@@ -5,6 +5,7 @@ const nexmoService = require('../services/nexmo')
 const Transaction = require('../models/transactions')
 const Claim = require('../models/claims')
 
+// misc
 exports.getTransaction = (req, res) => {
   let { code } = req.params
 
@@ -17,6 +18,14 @@ exports.getTransaction = (req, res) => {
   }).catch(err => {
     res.status(503).json({ status:'error', data: null, message: 'Failed to fetch transaction'})
   })
+}
+
+exports.getBanks = async (req, res) => {
+  let { country } = req.params
+
+  let banks = await raveService.getBanks(country)
+
+  res.json({'status':'success', data: banks })
 }
 
 

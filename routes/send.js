@@ -48,4 +48,10 @@ router.post (
   transactionsController.receiveWebhook
 )
 
+router.get (
+  '/banks/:country',
+  isValid({ params: validations.getBanksValidations }),
+  transactionsController.getBanks
+)
+
 module.exports = router
